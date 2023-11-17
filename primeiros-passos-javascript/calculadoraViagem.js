@@ -4,12 +4,14 @@ var kmPorLitros = 14;
 var distancia = 1000;
 var tipoCombustivel = 'gasolina';
 
-if(tipoCombustivel === 'gasolina'){
-    var valorGasto = (distancia/kmPorLitros) * gasolina;
+var valorGasto = (distancia / kmPorLitros) * gasolina;
+
+if (tipoCombustivel === 'gasolina') {
+    var valorGasto = (distancia / kmPorLitros) * gasolina;
     console.log('R$' + valorGasto.toFixed(2));
-}else if(tipoCombustivel === 'etanol'){
-    var valorGasto = (distancia/kmPorLitros) * etanol;
+} else if (tipoCombustivel === 'etanol') {
+    var valorGasto = (distancia / kmPorLitros) * etanol;
     console.log('R$' + valorGasto.toFixed(2));
-}else{
+} else {
     console.log('Combustível inválido');
 }
