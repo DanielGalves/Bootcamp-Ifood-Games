@@ -2,7 +2,7 @@
 const altura = 1.65;
 const peso = 70;
 
-var imc = peso / (altura * 2);
+var imc = peso / Math.pow(altura, 2);
 
 if (imc < 18.5) {
     console.log('Abaixo do peso');
