@@ -1,18 +1,27 @@
-const valorProduto = 100;
-const tipoPagamento = 'parcelado';
-const quantidadeParcelas = 10;
+function valorTotal(tipoPagamento,valorProduto,quantidadeParcelas){
+    if (tipoPagamento === 'dinheiro' || tipoPagamento === 'pix') {
+        return valorProduto - (valorProduto * 0.15);
+        
+    } else if (tipoPagamento === 'debito') {
+        return valorProduto - (valorProduto * 0.10);
+    } else if (tipoPagamento === 'parcelado' && quantidadeParcelas <= 2) {
+        return valorProduto;
+    } else if (tipoPagamento === 'parcelado' && quantidadeParcelas > 2) {
+        return valorTotal = valorProduto + (valorProduto * 0.10);
+        
+    } else {
+        return 'Tipo de Pagamento inválido';
+    }
 
-if (tipoPagamento === 'dinheiro' || tipoPagamento === 'pix') {
-    var valorTotal = valorProduto - (valorProduto * 0.15);
-    console.log(valorTotal);
-} else if (tipoPagamento === 'debito') {
-    var valorTotal = valorProduto - (valorProduto * 0.10);
-    console.log(valorTotal);
-} else if (tipoPagamento === 'parcelado' && quantidadeParcelas <= 2) {
-    console.log(valorProduto);
-} else if (tipoPagamento === 'parcelado' && quantidadeParcelas > 2) {
-    var valorTotal = valorProduto + (valorProduto * 0.10);
-    console.log(valorTotal);
-} else {
-    console.log('Tipo de Pagamento inválido');
 }
+
+function main(){
+    const valorProduto = 100;
+    const tipoPagamento = 'parcelado';
+    const quantidadeParcelas = 10;
+
+    console.log(valorTotal(tipoPagamento,valorProduto,quantidadeParcelas));
+
+}
+
+main();
