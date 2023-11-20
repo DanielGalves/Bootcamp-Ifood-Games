@@ -1,30 +1,22 @@
+class Pessoa{
+    nome;
+    idade;
 
-
-const pessoa = {
-    nome: 'Daniel Gama Alves',
-    idade: 40,
-    descrever : function(){
+    descrever(){
        console.log(`Meu nome é  ${this.nome} e tenho  ${this.idade} anos`); 
+
     }
 }
 
+const daniel = new Pessoa();
+daniel.nome = 'Daniel Gama Alves';
+daniel.idade = 30;
 
 
+const alice = new Pessoa()
+alice.nome = 'Alice Moraes';
+alice.idade = 10;
 
-pessoa.altura = 1.65;
 
-
-pessoa.descrever();
-
-console.log(pessoa);
-
-pessoa['altura'] = 1.63;
-
-console.log(pessoa);
-
-const atributo = 41;
-
-pessoa.idade = atributo;
-
-console.log(pessoa);
-
+daniel.descrever();
+alice.descrever();
