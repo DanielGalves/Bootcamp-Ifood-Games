@@ -1,6 +1,13 @@
 class Pessoa{
     nome;
     idade;
+    anodeNascimento;
+
+    constructor(nome,idade){
+        this.nome = nome;
+        this.idade = idade;
+        this.anodeNascimento = 2023 - idade;
+    }
 
     descrever(){
        console.log(`Meu nome é  ${this.nome} e tenho  ${this.idade} anos`); 
@@ -8,15 +15,11 @@ class Pessoa{
     }
 }
 
-const daniel = new Pessoa();
-daniel.nome = 'Daniel Gama Alves';
-daniel.idade = 30;
-
-
-const alice = new Pessoa()
-alice.nome = 'Alice Moraes';
-alice.idade = 10;
+const daniel = new Pessoa('Daniel', 40);
+const alice = new Pessoa('Alice', 10);
 
 
 daniel.descrever();
 alice.descrever();
+console.log(daniel);
+console.log(alice);
