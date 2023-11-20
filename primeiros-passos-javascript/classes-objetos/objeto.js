@@ -1,13 +1,15 @@
 
 
-const daniel = {
+const pessoa = {
     nome: 'Daniel Gama Alves',
-    idade: 40
+    idade: 40,
+    descrever : function(){
+       console.log(`Meu nome é  ${this.nome} e tenho  ${this.idade} anos`); 
+    }
 }
 
-console.log(daniel.nome);
-console.log(daniel.idade);
 
-daniel.altura = 1.65;
+pessoa.altura = 1.65;
 
-console.log(daniel);
+
+pessoa.descrever();
