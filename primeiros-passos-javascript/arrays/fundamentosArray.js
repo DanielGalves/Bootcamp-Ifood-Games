@@ -32,5 +32,5 @@ function adicionarNotas(){
     console.log(media);
 }
 
-//imprimirLetras();
+imprimirLetras();
 adicionarNotas();
