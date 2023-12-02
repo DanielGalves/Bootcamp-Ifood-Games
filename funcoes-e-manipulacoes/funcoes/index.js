@@ -2,7 +2,7 @@
 
  //literal
   function formaLiteral(){
-    console.log('Forma literal');
+    console.log(this);
   }
 
   //forma Expression
@@ -11,3 +11,18 @@
   }
 
   //Arrow function
+  const arrowFunction = () => {
+    console.log(this)
+  }
+
+  const pessoa = {
+    nome: 'Matusalem',
+    formaLiteral,
+    arrowFunction
+  }
+
+  pessoa.formaLiteral();
+  pessoa.arrowFunction();
+
+
+  
