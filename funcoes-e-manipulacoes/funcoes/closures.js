@@ -1,8 +1,16 @@
 
-
+/*
 function soma(x){
     return function(y){
         return x + y;
+    }
+}
+*/
+
+
+function soma(x){
+    return (y) => {
+        return x+y;
     }
 }
 
