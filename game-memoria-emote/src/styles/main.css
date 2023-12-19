@@ -57,6 +57,7 @@ h2{
     content: "";
     position: absolute;
     inset: 0;
+    opacity: 0.8;
     background: #404040;
     transition: 0.25s;
     transform: rotateY(0deg);
