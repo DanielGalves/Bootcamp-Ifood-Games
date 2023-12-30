@@ -19,8 +19,7 @@ const playTune = (key) => {
 };
 
 pianoKeys.forEach((key) =>{
-    console.log(key.dataset.key);
-    
+      
     key.addEventListener("click", () => playTune(key.dataset.key));
 
     mapedKey.push(key.dataset.key);
