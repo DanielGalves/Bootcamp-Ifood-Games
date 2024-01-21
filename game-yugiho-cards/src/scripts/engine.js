@@ -106,6 +106,36 @@ async function setCardsField(cardID){
 }
 
 
+async function drawButton(text){
+    state.actions.button.innerText = text;
+    state.actions.button.style.display = "block"; 
+}
+
+async function updateScore(){
+    state.score.scoreBox.innetText = `Win : ${state.score.playerScore} | Lose : ${state.score.computerScore}`
+}
+
+async function checkDuelResults(playerCardId, computerCardId){
+    let duelResults = "Empate";
+    let playeCard = cardData[playerCardId];
+
+    if(playeCard.WinOf.includes(computerCardId)){
+        duelResults = "Ganhou!"
+        state.score.playerScore++
+    }
+
+    if(playeCard.LoseOf.includes(computerCardId)){
+        duelResults = "Perder!"
+        state.computerScore++
+    }
+
+    return duelResults;
+}
+
+
+
+
+
  async function removeAllCardsImages(){
     let {computerBox, playe1Box} = state.playerSides;
     let imgElements = cards.querySelectorAll("img");
