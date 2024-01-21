@@ -25,7 +25,7 @@ const playerSides = {
     computer:"computer-cards",
 }
 
-const pathImages = "./scr/assets/icons/";
+const pathImages = "./src/assets/icons/";
 
 
 const cardData = [
@@ -72,14 +72,20 @@ async function createCardImage(IdCard, fieldSide)
         cardImage.addEventListener("click",() =>{
             setCardFeild(cardImage.getAttribute("data-id"));
         });
+        cardImage.addEventListener("mouseover", () => {
+            drawSelectCard(IdCard);
+        });
     }
 
-    cardImage.addEventListener("mouseover", () => {
-        drawSelectCard(IdCard);
-    });
 
     return cardImage;
 
+}
+
+async function drawSelectCard(index){
+    state.cardSprites.avatar.src = cardData[index].img;
+    state.cardSprites.name.innerText = cardData[index].name;
+    state.cardSprites.type.innerText = "Attribute : " + cardData[index].type
 }
 
 
@@ -89,9 +95,7 @@ async function drawCards(cardNumbers, fieldSide){
         const cardImage = await createCardImage(randomIdCard,fieldSide);
     
         document.getElementById(fieldSide).appendChild(cardImage);
-    
-        
-    
+       
     }
 }
 
