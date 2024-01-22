@@ -92,6 +92,9 @@ async function setCardsField(cardID){
     state.filedCards.player.style.display = "block";
     state.filedCards.computer.style.display = "block";
 
+    
+
+
     state.filedCards.player.src = cardData[cardID].img;
     state.filedCards.computer.src = cardData[computerCardId].img;
 
