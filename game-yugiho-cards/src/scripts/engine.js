@@ -92,7 +92,7 @@ async function setCardsField(cardID){
     state.filedCards.player.style.display = "block";
     state.filedCards.computer.style.display = "block";
 
-    
+
 
 
     state.filedCards.player.src = cardData[cardID].img;
@@ -191,6 +191,9 @@ async function playAudio(status){
 function init(){
     drawCards(5,state.playerSides.player1);
     drawCards(5,state.playerSides.computer)
+
+    const bgm = document.getElementById("bgm");
+    bgm.play();
     
 }
 
