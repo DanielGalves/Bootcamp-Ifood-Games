@@ -87,20 +87,22 @@
 .card-versus__container{
     margin-top: 5rem;
     display: flex;
+    align-items: center;
     flex-direction: column;
     padding-top: 0.1rem;
     height: 300px;
 }
 
 .versus-top,
-.versus-bottom{
+.versus-button{
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.versus-bottom{
+.versus-button{
     margin-top: 1rem;
+    
 }
 
 #next-duel{

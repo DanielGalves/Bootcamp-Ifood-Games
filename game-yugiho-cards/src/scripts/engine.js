@@ -12,9 +12,8 @@ const state ={
         type: document.getElementById("card-type"),
     },
     filedCards:{
-        player: document.getElementById("player-field-card"),
-               
-        computer: document.getElementById("computer-field-card")
+        player: document.getElementById("player-card"),               
+        computer: document.getElementById("computer-card")
     },
     playerSides :{
         player1: "player-cards",
@@ -71,9 +70,9 @@ async function createCardImage(IdCard, fieldSide)
     cardImage.setAttribute("data-id", IdCard);
     cardImage.classList.add("card");
 
-    if (fieldSide === playerSides.player1){
+    if (fieldSide === state.playerSides.player1){
         cardImage.addEventListener("click",() =>{
-            setCardFeild(cardImage.getAttribute("data-id"));
+            setCardsField(cardImage.getAttribute("data-id"));
         });
 
         cardImage.addEventListener("mouseover", () => {
@@ -100,7 +99,7 @@ async function setCardsField(cardID){
     let duelResults = await checkDuelResults(cardID,computerCardId);
 
     await updateScore();
-    await drawButton();
+    await drawButton(duelResults);
 
 
 }
@@ -112,7 +111,7 @@ async function drawButton(text){
 }
 
 async function updateScore(){
-    state.score.scoreBox.innetText = `Win : ${state.score.playerScore} | Lose : ${state.score.computerScore}`
+    state.score.scoreBox.innerText = `Win : ${state.score.playerScore} | Lose : ${state.score.computerScore}`
 }
 
 async function checkDuelResults(playerCardId, computerCardId){
@@ -121,12 +120,12 @@ async function checkDuelResults(playerCardId, computerCardId){
 
     if(playeCard.WinOf.includes(computerCardId)){
         duelResults = "Ganhou!"
-        state.score.playerScore++
+        state.score.playerScore ++
     }
 
     if(playeCard.LoseOf.includes(computerCardId)){
-        duelResults = "Perder!"
-        state.computerScore++
+        duelResults = "Perdeu!"
+        state.score.computerScore ++
     }
 
     return duelResults;
@@ -138,10 +137,10 @@ async function checkDuelResults(playerCardId, computerCardId){
 
  async function removeAllCardsImages(){
     let {computerBox, playe1Box} = state.playerSides;
-    let imgElements = cards.querySelectorAll("img");
+    let imgElements = computerBox.querySelectorAll("img");
     imgElements.forEach((img) => img.remove());
     
-    imgElements = cards.querySelectorAll("img");
+    imgElements = playe1Box.querySelectorAll("img");
     imgElements.forEach((img) => img.remove())
 }
 
@@ -164,8 +163,8 @@ async function drawCards(cardNumbers, fieldSide){
 
 
 function init(){
-    drawCards(5,playerSides.player1);
-    drawCards(5,playerSides.computer)
+    drawCards(5,state.playerSides.player1);
+    drawCards(5,state.playerSides.computer)
     
 }
 
