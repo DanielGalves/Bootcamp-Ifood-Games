@@ -119,13 +119,16 @@ async function checkDuelResults(playerCardId, computerCardId){
     let playeCard = cardData[playerCardId];
 
     if(playeCard.WinOf.includes(computerCardId)){
-        duelResults = "Ganhou!"
+        duelResults = "WIN"
         state.score.playerScore ++
+        await playAudio(duelResults);
+
     }
 
     if(playeCard.LoseOf.includes(computerCardId)){
-        duelResults = "Perdeu!"
+        duelResults = "LOSE"
         state.score.computerScore ++
+        await playAudio(duelResults);
     }
 
     return duelResults;
@@ -161,6 +164,26 @@ async function drawCards(cardNumbers, fieldSide){
     }
 }
 
+async function resetDuel(){
+    state.cardSprites.avatar.src = "";
+    state.actions.button.style.display = "none";
+
+    state.filedCards.player.style.display = "none";
+    state.filedCards.computer.style.display = "none";
+    init();
+
+}
+
+async function playAudio(status){
+    const audio = new Audio(`./src/assets/audios/${status}.wav`)
+
+
+    try{
+        audio.play();
+    }catch{
+
+    }
+}
 
 function init(){
     drawCards(5,state.playerSides.player1);
